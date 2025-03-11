@@ -1,0 +1,7 @@
+header, footer {
+    background-color: grey;
+}
+
+.nav-color {
+    color: rgba(255, 255, 255, 0.5)
+}
