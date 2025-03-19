@@ -1,88 +1,90 @@
-﻿
+﻿@model SelectList;
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    
-    <link href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet"/>
-    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet"/>
-    <link href="~/css/site.css" rel="stylesheet"/>
-    <link href="~/Padhrusha.UI.styles.css" asp-append-version="true"/>
-    <link href="~/css/site.css" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width" />
+<title>Index</title>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+<link rel="stylesheet" href="~/Padhrusha.UI.styles.css" asp-appendversion="true" />
 </head>
 <body>
-<header>
-    <div class="container">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <!-- меню сайта -->
-            <a class="navbar-brand" href="#">WebLabsV03</a>
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Лб 1</a>
-                <a class="nav-item nav-link" href="#">Каталог</a>
-                <a class="nav-item nav-link" href="#">Администрирование</a>
+<main class="container mb-3">
+    <h1> @ViewData["text"]</h1>
+    <div>
+        <h2>Список</h2>
+        <ol type="A">
+            @for (int i = 0; i < 5; i++)
+            {
+                <li>element @i List</li>
+            }
+        </ol>
+    </div>
+    <form method="post" role="form">
+        <h2>Форма</h2>
+            <div class="row justify-content-center mt-3 mb-3">
+                <div class="col-sm-6">
+                    <select class="form-select " asp-items="Model" name="selDemo"></select>
+                </div>
             </div>
-            <!-- меню сайта - конец -->
-            <!-- Информация пользователя -->
-            <a href="#" class="navbar-text ms-auto">
-                00,0 руб <i class="fa-solid fa-cart-shopping"></i> (0)
-            </a>
-            <div class="dropdown ms-4 nav-color">
-                <button class="btn btn-secondary dropdown-toggle"
-                        type="button" id="dropdownMenuButton"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    User@gmail.com
-                    <img src="images/default-profile-picture.png" width="30"
-                         alt="User" class="rounded nav-color" />
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li>
-                        <span class="dropdown-item-text">
-                            <img src="images/default-profile-picture.png"
-                                 width="50" alt="User" class="rounded" />
-                            user@gmail.com
-                        </span>
-                    </li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                        <form id="logoutForm" class="form-inline" action="#">
-                            <button id="logout" type="submit" class="nav-link
-btn btn-link text-dark">Logout</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-            <!-- Информация пользователя - конец -->
-        </nav>
-    </div><!-- container - конец -->
-</header><!-- header - конец -->
-<main class="container">
-    Содержимое страницы
-</main>
-<footer>
-    <div class="container">
-        <div class="navbar navbar-dark navbar-expand-md bg-dark">
-            <div class="navbar-nav ms-auto">
-                <a class="nav-item nav-link" href="http://www.facebook.com">
-                    <i class="fa-brands fa-facebook-f fa-2x"></i>
-                </a>
-                <a class="nav-item nav-link" href="http://www.vk.com">
-                    <i class="fa-brands fa-vk fa-2x"></i>
-                </a>
-                <a class="nav-item nav-link" href="http://www.twitter.com">
-                    <i class="fa-brands fa-twitter fa-2x"></i>
-                </a>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-9">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Чек-бокс 1
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Чек-бокс 2
+                    </label>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-
+        <div class="row justify-content-center mt-3 mb-3">
+            <div class="col-6 d-flex justify-content-between">
+                <div class="form-check col-3">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Радио-1
+                    </label>
+                </div>
+                <div class="form-check col-3">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Радио-2
+                    </label>
+                </div>
+                <div class="form-check col-3">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Радио-3
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="login" class="col-sm-3 col-form-label">Логин</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="login">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-8">
+                <input type="password" class="form-control" id="inputPassword">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</main>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
